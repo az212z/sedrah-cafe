@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>سدرة · SEDRAH — قهوة مختصة في تبوك</title>
+<meta name="description" content="سدرة SEDRAH — قهوة مختصة في تبوك. محاصيل منتقاة وحلويات مميزة في أجواءٍ دافئة وجلساتٍ مريحة. في ظلّ سدرة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Tajawal:wght@200;300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f1eadc; --bg2:#e7ddca; --paper:#fbf6eb;
+  --ink:#312a20; --ink2:#665a48; --ink3:#988a73;
+  --terra:#ab6440; --terra-d:#894c2e; --olive:#5e6347; --gold:#bb9a5e; --gold-d:#9a7c43;
+  --char:#221c14; --char2:#2e2718;
+  --line:rgba(49,42,32,.14); --line2:rgba(49,42,32,.07);
+  --fa-d:'El Messiri',serif; --fa:'Tajawal',sans-serif;
+  --fd:'Cormorant Garamond',serif; --fu:'Jost',sans-serif;
+  --ease:cubic-bezier(.32,.72,0,1); --maxw:1240px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--fa);font-weight:300;line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--terra);color:#fff}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--fa-d);font-weight:600;line-height:1.16;letter-spacing:-.01em}
+.lat{font-family:var(--fd)}
+.ui{font-family:var(--fu)}
+.num{font-family:var(--fd);font-weight:600;direction:ltr;unicode-bidi:isolate}
+.mk{display:inline-block}
+
+.grain{position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+#pre{position:fixed;inset:0;z-index:10000;background:var(--char);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .9s var(--ease),visibility .9s}
+#pre.done{opacity:0;visibility:hidden}
+#pre .plm{display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;transform:translateY(12px);animation:plin 1s var(--ease) .15s forwards}
+#pre .plm .mk{width:56px;height:56px;color:var(--gold)}
+#pre .plm b{font-family:var(--fa-d);font-size:clamp(34px,7vw,52px);color:var(--bg);font-weight:600;letter-spacing:.04em}
+#pre .pls{font-family:var(--fu);font-size:10.5px;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;opacity:0;animation:plin 1s var(--ease) .45s forwards}
+#pre .plb{width:120px;height:1px;background:rgba(255,255,255,.18);overflow:hidden}
+#pre .plb i{display:block;height:100%;width:40%;background:var(--gold);animation:plbar 1.3s var(--ease) infinite}
+@keyframes plin{to{opacity:1;transform:none}}
+@keyframes plbar{0%{transform:translateX(-120%)}100%{transform:translateX(360%)}}
+
+#prog{position:fixed;top:0;left:0;right:0;height:2px;z-index:8000}
+#prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--terra),var(--gold))}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:7000;display:flex;justify-content:center;padding:18px 16px;transition:padding .5s var(--ease)}
+.nav.shrink{padding:10px 16px}
+.nav-in{width:100%;max-width:var(--maxw);display:flex;align-items:center;justify-content:space-between;gap:18px;
+  background:rgba(251,246,235,.8);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border:1px solid var(--line);border-radius:100px;padding:9px 12px 9px 20px;box-shadow:0 18px 50px -30px rgba(49,42,32,.5)}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .bk{width:42px;height:42px;border-radius:13px;background:var(--char);display:grid;place-items:center;flex:none}
+.brand .bk .mk{width:24px;height:24px;color:var(--gold)}
+.brand .bn b{font-family:var(--fa-d);font-weight:600;font-size:19px;letter-spacing:.01em}
+.brand .bn small{display:block;font-family:var(--fu);font-size:8px;letter-spacing:.4em;color:var(--ink3);text-transform:uppercase;margin-top:-2px}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{font-size:14.5px;color:var(--ink2);padding:8px 14px;border-radius:100px;transition:.4s var(--ease)}
+.nav-links a:hover{color:var(--ink);background:rgba(49,42,32,.05)}
+.nav-cta{display:inline-flex;align-items:center;gap:9px;background:var(--char);color:var(--paper)!important;padding:10px 10px 10px 19px!important;border-radius:100px;font-size:14px;transition:.45s var(--ease)}
+.nav-cta:hover{background:var(--terra-d);transform:translateY(-1px)}
+.nav-cta .ic{width:25px;height:25px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center;font-size:11px;transition:.45s var(--ease)}
+.nav-cta:hover .ic{transform:translateX(-3px) translateY(-1px)}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--paper);cursor:pointer;position:relative;flex:none}
+.burger span{position:absolute;left:13px;width:18px;height:1.6px;background:var(--ink);border-radius:2px;transition:.45s var(--ease)}
+.burger span:nth-child(1){top:18px}.burger span:nth-child(2){top:24px}
+.burger.x span:nth-child(1){top:21px;transform:rotate(45deg)}
+.burger.x span:nth-child(2){top:21px;transform:rotate(-45deg)}
+
+.mob{position:fixed;inset:0;z-index:6900;background:rgba(34,28,20,.97);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;opacity:0;visibility:hidden;transition:.6s var(--ease)}
+.mob.open{opacity:1;visibility:visible}
+.mob a{font-family:var(--fa-d);font-size:29px;color:var(--paper);padding:9px;opacity:0;transform:translateY(26px);transition:.7s var(--ease)}
+.mob.open a{opacity:1;transform:none}
+.mob.open a:nth-child(1){transition-delay:.08s}.mob.open a:nth-child(2){transition-delay:.14s}.mob.open a:nth-child(3){transition-delay:.2s}.mob.open a:nth-child(4){transition-delay:.26s}.mob.open a:nth-child(5){transition-delay:.32s}
+.mob .ml{font-family:var(--fu);font-size:11px;letter-spacing:.42em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.mob .mcta{margin-top:14px;background:var(--terra);color:#fff;font-family:var(--fa);font-size:18px;padding:13px 34px;border-radius:100px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--fu);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--terra-d);font-weight:400}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--terra)}
+.eyebrow.c::after{content:"";width:24px;height:1px;background:var(--terra)}
+
+.rv{opacity:0;transform:translateY(44px);filter:blur(8px);transition:opacity 1s var(--ease),transform 1s var(--ease),filter 1s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
+
+.hero{min-height:100dvh;display:flex;align-items:flex-end;position:relative;overflow:hidden;padding-bottom:7vh}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-bg img{width:100%;height:118%;object-fit:cover;will-change:transform}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,28,20,.5) 0%,rgba(34,28,20,.14) 30%,rgba(34,28,20,.42) 64%,rgba(34,28,20,.88) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px;color:#fff}
+.hero .eyebrow{color:var(--gold)}.hero .eyebrow::before{background:var(--gold)}
+.hero h1{font-size:clamp(54px,11vw,142px);font-weight:600;line-height:.98;margin:16px 0 0;letter-spacing:-.01em}
+.hero h1 em{font-family:var(--fd);font-style:italic;font-weight:400;color:var(--gold)}
+.hero-lead{max-width:520px;font-size:clamp(15px,2vw,18.5px);color:rgba(255,255,255,.86);margin-top:20px;font-weight:300}
+.hero-act{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:11px;border-radius:100px;font-size:15.5px;padding:14px 14px 14px 26px;transition:.5s var(--ease);font-family:var(--fa);cursor:pointer;border:none}
+.btn .ic{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:13px;transition:.5s var(--ease)}
+.btn-p{background:var(--paper);color:var(--char)}.btn-p .ic{background:var(--terra);color:#fff}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 22px 44px -20px rgba(0,0,0,.5)}.btn-p:hover .ic{transform:translateX(-3px) translateY(-1px)}
+.btn-g{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px)}.btn-g .ic{background:rgba(255,255,255,.16)}
+.btn-g:hover{background:rgba(255,255,255,.18)}
+.hero-meta{position:absolute;left:24px;bottom:7vh;z-index:2;display:flex;flex-direction:column;gap:3px;text-align:left;color:rgba(255,255,255,.8)}
+.hero-meta .stars{color:var(--gold);letter-spacing:.12em;font-size:15px}
+.hero-meta .num{font-size:23px;color:#fff}
+.hero-meta small{font-family:var(--fu);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase}
+
+.marq{background:var(--char);color:var(--bg);padding:16px 0;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.05)}
+.marq-t{display:flex;gap:42px;white-space:nowrap;width:max-content;animation:marq 32s linear infinite}
+.marq-t span{font-family:var(--fa-d);font-size:18px;color:rgba(241,234,220,.62);display:inline-flex;align-items:center;gap:42px}
+.marq-t span .mk{width:13px;height:13px;color:var(--gold)}
+@keyframes marq{to{transform:translateX(50%)}}
+
+.about{padding:clamp(80px,12vw,150px) 0}
+.about-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,7vw,96px);align-items:center}
+.about h2{font-size:clamp(28px,4.6vw,54px);margin:20px 0 0;line-height:1.18}
+.about h2 em{font-family:var(--fd);font-style:italic;font-weight:500;color:var(--terra-d)}
+.about p{color:var(--ink2);font-size:16.5px;margin-top:22px;max-width:46ch}
+.about-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.about-tags span{font-family:var(--fu);font-size:11px;letter-spacing:.04em;color:var(--terra-d);background:var(--paper);border:1px solid var(--line);padding:8px 15px;border-radius:100px}
+.about-side{position:relative}
+.about-card{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:8px;box-shadow:0 40px 80px -52px rgba(49,42,32,.5)}
+.about-card img{width:100%;height:500px;object-fit:cover;border-radius:20px}
+.about-badge{position:absolute;bottom:-22px;right:-14px;background:var(--char);color:var(--paper);border-radius:20px;padding:15px 20px;text-align:center;box-shadow:0 26px 50px -26px rgba(0,0,0,.5);display:flex;align-items:center;gap:10px}
+.about-badge .mk{width:28px;height:28px;color:var(--gold)}
+.about-badge b{font-family:var(--fa-d);font-size:15px;font-weight:500;color:#fff;display:block;line-height:1.3}
+.about-badge small{font-family:var(--fu);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(241,234,220,.7)}
+
+.shead{text-align:center;max-width:680px;margin:0 auto clamp(46px,7vw,76px)}
+.shead .mk{width:32px;height:32px;color:var(--gold);margin-bottom:8px}
+.shead h2{font-size:clamp(30px,5vw,58px);margin-top:8px;line-height:1.12}
+.shead h2 em{font-family:var(--fd);font-style:italic;font-weight:500;color:var(--terra-d)}
+.shead p{color:var(--ink2);margin-top:16px;font-size:16.5px}
+
+.sig{padding:clamp(80px,12vw,140px) 0;background:var(--bg2);border-top:1px solid var(--line2)}
+.sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sigc{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:36px 32px;text-align:center;transition:.5s var(--ease)}
+.sigc:hover{transform:translateY(-6px);box-shadow:0 40px 70px -46px rgba(49,42,32,.5);border-color:var(--gold)}
+.sigc .mk{width:36px;height:36px;color:var(--terra);margin-bottom:16px}
+.sigc h3{font-size:22px;margin-bottom:8px}
+.sigc p{color:var(--ink2);font-size:14.5px}
+
+.menu{padding:clamp(80px,12vw,140px) 0}
+.menu-note{text-align:center;font-family:var(--fu);font-size:11px;letter-spacing:.12em;color:var(--ink3);margin:-26px auto 42px;text-transform:uppercase}
+.mcols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.mcard{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:30px 30px;transition:.5s var(--ease)}
+.mcard:hover{box-shadow:0 34px 66px -50px rgba(49,42,32,.5);border-color:rgba(171,100,64,.4)}
+.mcard.span2{grid-column:span 2}
+.mh{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:13px;margin-bottom:6px}
+.mh h3{font-size:22px}
+.mh .me{font-family:var(--fu);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--terra)}
+.mrows.two{columns:2;column-gap:36px}
+.mrow{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line2);break-inside:avoid}
+.mrow .nm{flex:none}
+.mrow .nm b{font-family:var(--fa);font-weight:500;font-size:15.5px;color:var(--ink)}
+.mrow .nm small{display:block;font-family:var(--fd);font-style:italic;font-size:12.5px;color:var(--ink3);direction:ltr;text-align:right;margin-top:-3px}
+.mrow .dot{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+.mrow .pr{flex:none;font-family:var(--fd);font-weight:600;font-size:17px;color:var(--terra-d);direction:ltr;white-space:nowrap}
+.mrow .pr s{font-size:.6em;color:var(--ink3);text-decoration:none;font-family:var(--fu);font-weight:400;margin-right:2px}
+
+.gallery{padding:clamp(80px,12vw,140px) 0;background:var(--char);color:var(--bg)}
+.gallery .shead h2{color:var(--bg)}.gallery .shead p{color:rgba(241,234,220,.66)}
+.gallery .eyebrow{color:var(--gold)}.gallery .eyebrow::before,.gallery .eyebrow.c::after{background:var(--gold)}
+.g-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.gi{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;background:var(--char2)}
+.gi img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.gi:hover img{transform:scale(1.06)}
+.g-a{grid-column:span 5;grid-row:span 2;min-height:470px}
+.g-b{grid-column:span 4;min-height:227px}
+.g-c{grid-column:span 3;min-height:227px}
+.g-d{grid-column:span 7;min-height:227px}
+
+.visit{padding:clamp(80px,12vw,150px) 0}
+.vs-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(34px,5vw,64px);align-items:center}
+.visit h2{font-size:clamp(32px,5.4vw,60px);line-height:1.1}
+.visit h2 em{font-family:var(--fd);font-style:italic;font-weight:500;color:var(--terra-d)}
+.visit .lead{color:var(--ink2);font-size:17px;margin:22px 0 28px;max-width:42ch}
+.vs-act{display:flex;flex-wrap:wrap;gap:13px}
+.btn-ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff}.btn-ig .ic{background:rgba(255,255,255,.25)}
+.btn-ig:hover{transform:translateY(-2px);box-shadow:0 22px 44px -20px rgba(220,39,67,.5)}
+.btn-o{background:transparent;color:var(--char);border:1px solid var(--line)}.btn-o .ic{background:var(--bg2)}
+.btn-o:hover{border-color:var(--char)}
+.info-card{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:12px;box-shadow:0 40px 80px -54px rgba(49,42,32,.5)}
+.info-inner{border:1px solid var(--line2);border-radius:18px;overflow:hidden}
+.irow{display:flex;align-items:center;gap:15px;padding:20px 22px;border-bottom:1px solid var(--line2);transition:.4s var(--ease)}
+.irow:last-child{border-bottom:none}.irow:hover{background:var(--bg)}
+.irow .ico{width:44px;height:44px;border-radius:50%;background:var(--bg2);display:grid;place-items:center;flex:none;color:var(--terra-d)}
+.irow .ico svg{width:18px;height:18px}
+.irow small{font-family:var(--fu);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);display:block}
+.irow b{font-weight:500;font-size:16px;color:var(--ink)}
+
+.foot{background:var(--char);color:var(--bg);padding:14px 0 36px;border-top:1px solid rgba(255,255,255,.08)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding-top:26px}
+.foot-bot small{font-family:var(--fu);font-size:12px;letter-spacing:.06em;color:rgba(241,234,220,.5)}
+.foot .brand .bn b{color:var(--bg)}
+
+.ig{position:fixed;bottom:22px;left:22px;z-index:6000;width:58px;height:58px;border-radius:50%;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:grid;place-items:center;box-shadow:0 16px 40px -12px rgba(220,39,67,.55);transition:.45s var(--ease);animation:wap 3s ease-in-out infinite}
+.ig:hover{transform:scale(1.08)}.ig svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.8}
+@keyframes wap{0%,100%{box-shadow:0 16px 40px -12px rgba(220,39,67,.55)}50%{box-shadow:0 16px 54px -8px rgba(220,39,67,.8)}}
+
+#lb{position:fixed;inset:0;z-index:9500;background:rgba(18,14,8,.94);display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:94vw;max-height:88vh;border-radius:14px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+#lb .lbx{position:absolute;top:24px;left:24px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font-size:20px;cursor:pointer}
+
+@media(max-width:920px){
+  .nav-links{display:none}.burger{display:block}
+  .about-grid{grid-template-columns:1fr;gap:54px}.about-side{order:-1}
+  .g-a{grid-column:span 12;grid-row:span 1;min-height:320px}.g-b,.g-c,.g-d{grid-column:span 6;min-height:220px}
+  .vs-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .wrap,.hero-in{padding-left:18px;padding-right:18px}.hero-meta{left:18px}
+  .sig-grid{grid-template-columns:1fr}
+  .mcols{grid-template-columns:1fr}.mcard.span2{grid-column:span 1}.mrows.two{columns:1}
+  .g-b,.g-c,.g-d{grid-column:span 12;min-height:240px}
+  .hero-act{flex-direction:column;align-items:stretch}.hero-act .btn{justify-content:space-between}
+  .vs-act .btn{flex:1;justify-content:space-between}
+  .about-badge{right:auto;left:12px}
+}
+/* HEROFIX-MOBILE: keep Google rating below hero CTAs on phones, no overlap */
+@media(max-width:600px){
+  .hero{flex-direction:column;align-items:stretch;justify-content:flex-end}
+  .hero-meta{position:static;left:auto;right:auto;bottom:auto;top:auto;flex-direction:row;align-items:center;gap:11px;margin-top:22px}
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<svg width="0" height="0" style="position:absolute"><symbol id="sdr" viewBox="0 0 32 32">
+<path d="M16 2.4 L27.4 9 V23 L16 29.6 L4.6 23 V9 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<path d="M16 23.5 V13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M16 16.4 L12.3 12.7 M16 16.4 L19.7 12.7 M16 13.6 L13.2 10.8 M16 13.6 L18.8 10.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="16" cy="9.4" r="1.15" fill="currentColor"/><circle cx="12.1" cy="11.4" r="1" fill="currentColor"/><circle cx="19.9" cy="11.4" r="1" fill="currentColor"/><circle cx="13.8" cy="9.2" r=".8" fill="currentColor"/><circle cx="18.2" cy="9.2" r=".8" fill="currentColor"/>
+</symbol></svg>
+
+<div id="pre"><div class="plm"><span class="mk"><svg width="56" height="56"><use href="#sdr"/></svg></span><b>سدرة</b></div><div class="pls">SEDRAH · Tabuk</div><div class="plb"><i></i></div></div>
+<div id="prog"><i></i></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand">
+      <span class="bk"><span class="mk"><svg width="24" height="24"><use href="#sdr"/></svg></span></span>
+      <span class="bn"><b>سدرة</b><small>Sedrah</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">عن سدرة</a>
+      <a href="#menu">المنيو</a>
+      <a href="#gallery">المعرض</a>
+      <a href="#visit">زورونا</a>
+      <a href="#visit" class="nav-cta">موقعنا <span class="ic">↗</span></a>
+    </nav>
+    <button class="burger" id="burger" aria-label="القائمة"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mob" id="mob">
+  <div class="ml lat">Menu</div>
+  <a href="#about">عن سدرة</a>
+  <a href="#menu">المنيو</a>
+  <a href="#gallery">المعرض</a>
+  <a href="#visit">زورونا</a>
+  <a href="https://instagram.com/sedrah.co" target="_blank" rel="noopener" class="mcta">تابعنا على إنستغرام</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="img/hero.jpg" id="heroImg" alt="مقهى سدرة في تبوك"></div>
+  <div class="hero-in">
+    <span class="eyebrow">قهوة مختصة · تبوك</span>
+    <h1>في ظلّ <em>سدرة</em></h1>
+    <p class="hero-lead">محاصيل قهوة منتقاة وحلوياتٌ مميّزة، في أجواءٍ دافئة وجلساتٍ مريحة تشبه البيت. تجربةٌ هادئة تستحقّ التوقّف عندها.</p>
+    <div class="hero-act">
+      <a href="#menu" class="btn btn-p">تصفّح المنيو <span class="ic">↗</span></a>
+      <a href="#visit" class="btn btn-g">موقعنا <span class="ic">↓</span></a>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <span class="stars">★★★★★</span>
+    <span class="num">4.2</span>
+    <small>تقييم ضيوفنا على Google</small>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div class="marq-t">
+    <span>قهوة مختصة<span class="mk"><svg width="13" height="13"><use href="#sdr"/></svg></span></span><span>محاصيل منتقاة<span class="mk"><svg width="13" height="13"><use href="#sdr"/></svg></span></span><span>تشيز مدريد<span class="mk"><svg width="13" height="13"><use href="#sdr"/></svg></span></span><span>جلسات مريحة<span class="mk"><svg width="13" height="13"><use href="#sdr"/></svg></span></span><span>كيكة سدرة<span class="mk"><svg width="13" height="13"><use href="#sdr"/></svg></span></span>
+    <span>قهوة مختصة<span class="mk"><svg width="13" height="13"><use href="#sdr"/></svg></span></span><span>محاصيل منتقاة<span class="mk"><svg width="13" height="13"><use href="#sdr"/></svg></span></span><span>تشيز مدريد<span class="mk"><svg width="13" height="13"><use href="#sdr"/></svg></span></span><span>جلسات مريحة<span class="mk"><svg width="13" height="13"><use href="#sdr"/></svg></span></span><span>كيكة سدرة<span class="mk"><svg width="13" height="13"><use href="#sdr"/></svg></span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <span class="eyebrow rv">عن سدرة</span>
+      <h2 class="rv d1">دفءُ المكان<br><em>وصدقُ القهوة</em></h2>
+      <p class="rv d2">سدرة مقهى مختصّ في تبوك، اخترنا له اسم الشجرة التي يستظلّ بها المسافر — لنكون محطّتك الهادئة. ننتقي محاصيلنا بعناية، ونُقدّمها بأيدٍ مختصّة في مساحةٍ دافئة بتفاصيل تُريح العين والقلب.</p>
+      <p class="rv d3">من الإسبريسو وقهوة اليوم إلى محاصيلنا المميّزة وحلوياتنا — كل تفصيلة مصمّمة لتجعل جلستك أبهى.</p>
+      <div class="about-tags rv d4">
+        <span>قهوة مختصة</span><span>محاصيل منتقاة</span><span>حلويات مميزة</span><span>جلسات مريحة</span><span>تعامل راقٍ</span>
+      </div>
+    </div>
+    <div class="about-side rv d2">
+      <div class="about-card"><img src="img/about.jpg" alt="أجواء سدرة"></div>
+      <div class="about-badge"><span class="mk"><svg width="28" height="28"><use href="#sdr"/></svg></span><span><b>4.2 ★</b><small>تقييم Google</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURES -->
+<section class="sig">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mk rv"><svg width="32" height="32"><use href="#sdr"/></svg></span>
+      <span class="eyebrow c rv">توقيعاتنا</span>
+      <h2 class="rv d1">أصنافٌ <em>يعشقها ضيوفنا</em></h2>
+    </div>
+    <div class="sig-grid">
+      <div class="sigc rv d1"><span class="mk"><svg width="36" height="36"><use href="#sdr"/></svg></span><h3>تشيز مدريد</h3><p>توقيعنا الأشهر — تشيز كيك بقوامٍ ذائب وصوتٍ يقول «بطل».</p></div>
+      <div class="sigc rv d2"><span class="mk"><svg width="36" height="36"><use href="#sdr"/></svg></span><h3>كيكة سدرة</h3><p>حلوانا الخاص الذي يحمل اسمنا — لمسةٌ تُميّز سدرة وحدها.</p></div>
+      <div class="sigc rv d3"><span class="mk"><svg width="36" height="36"><use href="#sdr"/></svg></span><h3>محاصيلنا المختصة</h3><p>إسبريسو وقهوة يوم بمحاصيل منتقاة — أوصى بها ضيوفنا، خاصة المحصول الإندونيسي.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow c rv">المنيو</span>
+      <h2 class="rv d1">قائمةُ <em>سدرة</em></h2>
+      <p class="rv d2">قهوة مختصّة، مشروبات منعشة، وحلويات تُميّزنا.</p>
+    </div>
+    <div class="menu-note rv">جميع الأسعار بالريال السعودي</div>
+    <div class="mcols">
+
+      <div class="mcard rv d1">
+        <div class="mh"><h3>إسبريسو</h3><span class="me">Espresso</span></div>
+        <div class="mrows">
+          <div class="mrow"><div class="nm"><b>اسبريسو فلير</b><small>Espresso Flair</small></div><div class="dot"></div><div class="pr">13 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>الفريدو إسبريسو</b><small>Aff" Espresso</small></div><div class="dot"></div><div class="pr">15 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>أمريكانو — حار/بارد</b><small>Americano</small></div><div class="dot"></div><div class="pr">11 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>كابتشينو</b><small>Cappuccino</small></div><div class="dot"></div><div class="pr">16 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>لاتيه — حار/بارد</b><small>Latte</small></div><div class="dot"></div><div class="pr">16 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>فلات وايت</b><small>Flat White</small></div><div class="dot"></div><div class="pr">15 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>كورتادو</b><small>Cortado</small></div><div class="dot"></div><div class="pr">14 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>ميكاتو</b><small>Macchiato</small></div><div class="dot"></div><div class="pr">14 <s>ر.س</s></div></div>
+        </div>
+      </div>
+
+      <div class="mcard rv d2">
+        <div class="mh"><h3>القهوة المقطّرة</h3><span class="me">Filter</span></div>
+        <div class="mrows">
+          <div class="mrow"><div class="nm"><b>V60</b><small>Pour Over</small></div><div class="dot"></div><div class="pr"><s>من</s> 17 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>آيس V60</b><small>Iced V60</small></div><div class="dot"></div><div class="pr"><s>من</s> 18 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>قهوة اليوم — حار/بارد</b><small>Coffee of the Day</small></div><div class="dot"></div><div class="pr"><s>من</s> 12 <s>ر.س</s></div></div>
+        </div>
+        <div class="mh" style="margin-top:18px"><h3>مشروبات حارة</h3><span class="me">Hot</span></div>
+        <div class="mrows">
+          <div class="mrow"><div class="nm"><b>سبانش لاتيه</b><small>Spanish Latte</small></div><div class="dot"></div><div class="pr">18 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>هوت تشوكلت</b><small>Hot Chocolate</small></div><div class="dot"></div><div class="pr">17 <s>ر.س</s></div></div>
+        </div>
+      </div>
+
+      <div class="mcard rv d1">
+        <div class="mh"><h3>مشروبات باردة</h3><span class="me">Cold</span></div>
+        <div class="mrows">
+          <div class="mrow"><div class="nm"><b>سبانش لاتيه بارد</b><small>Iced Spanish Latte</small></div><div class="dot"></div><div class="pr">19 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>سولتد كراميل</b><small>Salted Caramel</small></div><div class="dot"></div><div class="pr">18 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>ماتشا</b><small>Matcha</small></div><div class="dot"></div><div class="pr">21 <s>ر.س</s></div></div>
+        </div>
+      </div>
+
+      <div class="mcard rv d2">
+        <div class="mh"><h3>حلويات</h3><span class="me">Desserts</span></div>
+        <div class="mrows">
+          <div class="mrow"><div class="nm"><b>كيكة سدرة</b><small>Sedrah Cake</small></div><div class="dot"></div><div class="pr">24 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>دولتشي كيك</b><small>Dolce Cake</small></div><div class="dot"></div><div class="pr">24 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>بيكان كيك</b><small>Pecan Cake</small></div><div class="dot"></div><div class="pr">24 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>تشيز مدريد</b><small>Madrid Cheesecake</small></div><div class="dot"></div><div class="pr">22 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>بودينج تشوكلت</b><small>Chocolate Pudding</small></div><div class="dot"></div><div class="pr">18 <s>ر.س</s></div></div>
+          <div class="mrow"><div class="nm"><b>كوكيز سكوب</b><small>Cookies Scoop</small></div><div class="dot"></div><div class="pr">18 <s>ر.س</s></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow c rv">من داخل سدرة</span>
+      <h2 class="rv d1">لمحاتٌ من <em>المكان</em></h2>
+    </div>
+    <div class="g-grid">
+      <div class="gi g-a rv d1" data-img="img/about.jpg"><img src="img/about.jpg" alt="جلسات سدرة"></div>
+      <div class="gi g-b rv d2" data-img="img/shelf.jpg"><img src="img/shelf.jpg" alt="ركن سدرة"></div>
+      <div class="gi g-c rv d3" data-img="img/sign.jpg"><img src="img/sign.jpg" alt="شعار سدرة"></div>
+      <div class="gi g-d rv d2" data-img="img/board.jpg"><img src="img/board.jpg" alt="قهوة وحلى سدرة"></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="wrap vs-grid">
+    <div>
+      <span class="eyebrow rv">زورونا</span>
+      <h2 class="rv d1">نراك في <em>سدرة</em></h2>
+      <p class="lead rv d2">سدرة بانتظارك في حي الصفا بتبوك — تابعنا على إنستغرام لأحدث المحاصيل والأصناف، وتفضّل بزيارتنا لقهوةٍ في ظلّ سدرة.</p>
+      <div class="vs-act rv d3">
+        <a href="https://instagram.com/sedrah.co" target="_blank" rel="noopener" class="btn btn-ig">تابعنا على إنستغرام <span class="ic">↗</span></a>
+        <a href="https://www.google.com/maps/search/?api=1&query=%D8%B3%D8%AF%D8%B1%D8%A9+%D8%AD%D9%8A+%D8%A7%D9%84%D8%B5%D9%81%D8%A7+%D8%AA%D8%A8%D9%88%D9%83" target="_blank" rel="noopener" class="btn btn-o">الاتجاهات <span class="ic">↗</span></a>
+      </div>
+    </div>
+    <div class="info-card rv d2">
+      <div class="info-inner">
+        <a href="https://instagram.com/sedrah.co" target="_blank" rel="noopener" class="irow">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span>
+          <span><small>إنستغرام</small><b>@sedrah.co</b></span>
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=%D8%B3%D8%AF%D8%B1%D8%A9+%D8%AD%D9%8A+%D8%A7%D9%84%D8%B5%D9%81%D8%A7+%D8%AA%D8%A8%D9%88%D9%83" target="_blank" rel="noopener" class="irow">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span><small>الموقع</small><b>حي الصفا · تبوك</b></span>
+        </a>
+        <div class="irow">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span>
+          <span><small>التجربة</small><b>قهوة مختصة وجلسات مريحة</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-bot">
+      <a href="#top" class="brand"><span class="bk" style="width:34px;height:34px;border-radius:10px"><span class="mk"><svg width="20" height="20"><use href="#sdr"/></svg></span></span><span class="bn"><b>سدرة</b></span></a>
+      <small>© 2026 سدرة · SEDRAH · تبوك</small>
+      <small class="lat">SEDRAH · Specialty Coffee</small>
+    </div>
+  </div>
+</footer>
+
+<a class="ig" href="https://instagram.com/sedrah.co" target="_blank" rel="noopener" aria-label="إنستغرام">
+  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="#fff" stroke="none"/></svg>
+</a>
+
+<div id="lb"><button class="lbx">✕</button><img src="" alt=""></div>
+
+<script>
+(function(){
+  var pre=document.getElementById('pre');
+  function hide(){pre.classList.add('done')}
+  window.addEventListener('load',function(){setTimeout(hide,500)});setTimeout(hide,2600);
+
+  var prog=document.querySelector('#prog i'),nav=document.getElementById('nav');
+  function onScroll(){
+    var h=document.documentElement,sc=h.scrollTop,mx=h.scrollHeight-h.clientHeight;
+    prog.style.width=(mx>0?(sc/mx*100):0)+'%';
+    nav.classList.toggle('shrink',sc>40);
+    var hi=document.getElementById('heroImg');
+    if(hi&&sc<window.innerHeight){hi.style.transform='translateY('+(sc*0.16)+'px)'}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var burger=document.getElementById('burger'),mob=document.getElementById('mob');
+  function toggle(){burger.classList.toggle('x');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':''}
+  burger.addEventListener('click',toggle);
+  mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(mob.classList.contains('open'))toggle()})});
+
+  var rvs=document.querySelectorAll('.rv');
+  function safety(){var vh=window.innerHeight;rvs.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<vh*0.94){el.classList.add('in')}})}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0,rootMargin:'0px 0px -7% 0px'});
+    rvs.forEach(function(el){io.observe(el)});
+  }
+  window.addEventListener('load',safety);window.addEventListener('scroll',safety,{passive:true});
+  setTimeout(safety,400);setTimeout(safety,1400);
+
+  var lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+  document.querySelectorAll('.gi').forEach(function(p){p.addEventListener('click',function(){lbi.src=p.getAttribute('data-img');lb.classList.add('on');document.body.style.overflow='hidden'})});
+  function close(){lb.classList.remove('on');document.body.style.overflow=''}
+  lb.addEventListener('click',close);
+})();
+</script>
+</body>
+</html>
